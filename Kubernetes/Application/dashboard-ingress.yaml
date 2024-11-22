@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dashboard-ingress
+  namespace: kubernetes-dashboard
+spec: # Routing Rules
+  ingressClassName: "nginx"
+  rules:
+    # valid domain address  and map domain name to Node's Ip address, which is the entrypoint
+    - host: dashboard.com # Any request comes to this url redirect it to internal service which is mentioned below called kubernetes-dashboard.
+      http: # incoming request gets forwarded to internal service
+        paths:
+          - path: / # This means everything after the url. dashboard.com/ AFTER HERE.
+            pathType: Prefix
+            backend:
+              service:
+                name: kubernetes-dashboard # Match this name with the internal service name in which you want to redirect the traffic
+                port:
+                  number: 80 # Match this port name with the internal service expose port
+
+# Ingress need a implementation of it. Which is another pod. Which is Ingress controller.
+# evaluates and processes ingress rules
+# What is Ingress Controller
+# evaluates all the rules. manages redirections. entrypoint to cluster. There are many third party implementation.
+# The Nginx Ingress Controller is it's from Kubernetes
+
+
+
+
+# Environment on which your cluster runs. If you use any cloud provider they have there own load balancer for you. Which work as a entrypoint for them.
+# If you didn't use any cloud provider then you have to setup a entry point for you kubernetes cluster. you have to setup a separate server or proxy server. Public ip address and open ports. Entrypoint to cluster.
+# All the inside kubernetes service will not have access from outside world.

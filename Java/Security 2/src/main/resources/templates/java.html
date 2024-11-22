@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Current Date: </h1>
+    <button type="button" id="start">START</button>
+    <button type="button" id="stop">STOP</button>
+</body>
+<script type="text/javascript">
+
+    // const h1text= document.querySelector("h1");
+    // const changeText = setTimeout(function() {
+    //     h1text.innerHTML = "HeLlo Vikas bHAI";
+    // },4000);
+
+    // const stop = document.querySelector("button").addEventListener('click',function () {
+    //     clearTimeout(changeText);
+    // })
+
+
+
+
+    // Time Start and Stop
+
+    // const h1text = document.querySelector("h1");
+    // const start = document.getElementById("start");
+    // const stop = document.getElementById("stop");
+
+    // let showDate;
+    // const eventStart = start.addEventListener("click",function () {
+    //     console.log("click eventstarted");
+    //     showDate = setInterval(function () {
+    //         h1text.innerHTML = `Current Date: ${new Date}`;
+    //         console.log("set Interval started");
+    //     },1000);
+            
+    // });
+
+    // const eventStop = stop.addEventListener("click",function () {
+    //     clearInterval(showDate);
+    // });
+
+
+
+
+    const randomcolor = function(){
+        const hex = "0123456789ABCDEF";
+        const color = "#";
+
+        for(let i=0;i<6;i++){
+            color+= hex[Math.floor(Math.random()*16)];
+        }
+
+        return color;
+    };
+
+
+    console.log(randomcolor);
+
+
+    
+
+</script>
+</html>
